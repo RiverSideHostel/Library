@@ -1,0 +1,282 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c',
+    sans-serif;
+}
+
+body {
+  line-height: 1.8;
+  line-height: 2;
+  font-size: 18px;
+  color: var(--color_black);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 50%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+/* フォーム */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+}
+
+/* ここまで リセット*/
+
+/* ここから共通CSS */
+
+/* 色の変数 */
+:root {
+  --color_white: #fff;
+  --color_black: #333;
+  --color_blue: #00d7ee;
+  --color_blue_light: #d0fdff;
+  --color_orange: #ffaf3f;
+  --color_orange_hover: #ff8539;
+}
+
+body {
+  font-family: "Segoe UI",
+    Meiryo,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: linear-gradient(118.47deg, #E9EDF0 0.61%, #E9EDF0 100%);
+
+}
+
+
+h1 {
+  margin: 60px 0px 36px 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.form_parent {
+  width: 360px;
+  margin: 64px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  ;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+button {
+  width: 260px;
+  height: 40px;
+  background: linear-gradient(134.17deg, #EEF0F5 4.98%, #E6E9EF 94.88%);
+  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8),
+    10px 10px 20px rgba(166, 180, 200, 0.7);
+  /* border: solid 1px rgba(159, 175, 180, 0.103); */
+  border-radius: 4px;
+
+}
+
+button:hover {
+  background: var(--color_blue_light);
+
+}
+
+
+button:active {
+  background: var(--color_blue_light);
+  box-shadow: inset 11px 11px 22px #d6dadd,
+    inset -11px -11px 22px #fcffff;
+}
+
+input {
+  width: 260px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  background: linear-gradient(134.17deg, #EEF1F5 4.98%, #E6E9EF 94.88%);
+  box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75),
+    inset 5px 5px 10px rgba(166, 180, 200, 0.75);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  height: 48px;
+  color: #757575;
+}
+
+input:focus {
+  background: var(--color_blue_light);
+}
+
+.input_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.person_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 60px 40px 40px 40px;
+}
+
+.person_text {
+  font-size: 14px;
+}
+
+.login_username,
+.login_password {
+  margin-top: 36px;
+}
+
+
+.form_group:not(:first-of-type) {
+  margin: 24px 0 0;
+}
+
+.vErrorMsg {
+  font-size: 14px;
+  color: red;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.action_btn,
+.form_group:not(:first-of-type) {
+  margin-top: 24px;
+}
