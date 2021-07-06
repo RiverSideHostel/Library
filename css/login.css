@@ -140,17 +140,17 @@ button {
 
 
 html{
-    width: 375px;
-    height: 812px;
+    width: 414px;
+    height: 896px;
 }
 
 
 body{
     color: white;
-    width: 375px;
-    height: 812px;
+    width: 414px;
+    height: 896px;
     background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
+    background-size: 200% 200%;
     animation: gradient 5s ease infinite;
 }
 
@@ -168,7 +168,7 @@ background-position: 0% 50%
 
 
 .form_parent {
-    width: 375px;
+    width: 414px;
     margin: 64px auto;
     display: flex;
     justify-content: center;
