@@ -60,54 +60,6 @@ INSERT INTO `books` (`id`, `name`, `author`, `published`, `price`, `genre`, `des
 (31, 'Dayanita Singh: Museum of Chance', 'Dayanita Singh', '2005-07', 1000, '写真集', 'インド出身の写真家、ダヤニータ・シンの写真集。外国人が思い描く、\"エキゾチック\"、\"混沌\"といったステレオタイプなインドではなく、静謐で詩的、夢と現実を行き来するかのようなインドの姿がモノクロ作品で収められている。 全体的に状態良好。', '../image/202107070106448c7bedc744527a5cad493a23c9c389f5.png', 0, 10, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-07 01:06:44', '2021-07-07 01:06:44'),
 (32, 'William Eggleston: Election Eve', 'William Eggleston', '2020-03', 800, '写真集', 'カラー表現を用いたアート・フォトのパイオニア、ウィリアム・エグルストンの作品集。1977年にコルデコット・チャブ社から5冊のみ出版された2冊組の希少な作品集を、シュタイデル社が1冊にまとめたもの。テネシー州メンフィスからジョージア州プレーンズへ旅した際に撮影された写真を収録。 英語表記。 全体的に状態良好。', '../image/202107070109128c7bedc744527a5cad493a23c9c389f5.png', 0, 10, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-07 01:09:12', '2021-07-07 01:09:12');
 
--- --------------------------------------------------------
-
---
--- テーブルの構造 `places`
---
-
-CREATE TABLE `places` (
-  `id` int(12) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `place_type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_id` int(12) NOT NULL,
-  `is_deleted` int(1) NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- テーブルの構造 `users_table`
---
-
-CREATE TABLE `users_table` (
-  `id` int(12) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile` varchar(512) NOT NULL,
-  `icon` mediumblob NOT NULL,
-  `is_admin` int(1) NOT NULL,
-  `is_deleted` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- テーブルのデータのダンプ `users_table`
---
-
-INSERT INTO `users_table` (`id`, `name`, `email`, `password`, `address`, `profile`, `icon`, `is_admin`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, '地図先生', 'tizu@example.com', 'tizutizu', '', '', '', 0, 0, '2021-06-19 17:04:18', '2021-06-19 17:26:55'),
-(2, 'Watson', 'watson@example.com', 'watson', '', '', '', 0, 0, '2021-06-19 17:04:50', '2021-06-19 17:04:50'),
-(3, 'hige', 'hige@example.com', 'higehige', '', '', '', 0, 0, '2021-06-19 17:28:11', '2021-06-19 17:28:11'),
-(4, 'miya', 'miya@example.com', 'miyamiya', '', '', '', 0, 0, '2021-07-05 02:26:14', '2021-07-05 02:26:14'),
-(5, '具志堅', 'gushiken@example.com', 'gushiken', '', '', '', 0, 0, '2021-07-05 02:26:36', '2021-07-05 02:26:36');
-
 --
 -- ダンプしたテーブルのインデックス
 --
@@ -119,18 +71,6 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
--- テーブルのインデックス `places`
---
-ALTER TABLE `places`
-  ADD PRIMARY KEY (`id`);
-
---
--- テーブルのインデックス `users_table`
---
-ALTER TABLE `users_table`
-  ADD PRIMARY KEY (`id`);
-
---
 -- ダンプしたテーブルの AUTO_INCREMENT
 --
 
@@ -139,18 +79,6 @@ ALTER TABLE `users_table`
 --
 ALTER TABLE `books`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- テーブルの AUTO_INCREMENT `places`
---
-ALTER TABLE `places`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
-
---
--- テーブルの AUTO_INCREMENT `users_table`
---
-ALTER TABLE `users_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
