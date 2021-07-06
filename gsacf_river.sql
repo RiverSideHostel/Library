@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: localhost
--- 生成日時: 2021 年 7 月 06 日 20:12
+-- 生成日時: 2021 年 7 月 06 日 21:30
 -- サーバのバージョン： 10.4.19-MariaDB
 -- PHP のバージョン: 8.0.6
 
@@ -53,13 +53,8 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `name`, `author`, `published`, `price`, `genre`, `description`, `image`, `status`, `user_id`, `borrow_user_id`, `trade_type`, `place_name`, `receipt_date`, `return_date`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, '宮川', 'ホンマタカシ', '2015-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, 4, 'コンビニ', '大名', 'NULL', 'NULL', 0, '2021-06-24 11:59:11', '2021-06-24 11:59:11'),
-(2, '宮川', 'ホンマタカシ', '2015-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, 4, 'コンビニ', '大名', 'NULL', 'NULL', 0, '2021-07-06 18:58:39', '2021-07-06 18:58:39'),
 (3, 'NEW WAVE', 'ホンマタカシ', '2007-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, 4, 'NULL', 'NULL', 'NULL', 'NULL', 0, '2021-07-06 19:09:18', '2021-07-06 19:09:18'),
-(4, 'NEW WAVE', 'ホンマタカシ', '2007-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, NULL, 'NULL', 'NULL', 'NULL', 'NULL', 0, '2021-07-06 19:26:34', '2021-07-06 19:26:34'),
-(5, 'NEW WAVE', 'ホンマタカシ', '2007-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:27:16', '2021-07-06 19:27:16'),
 (6, 'NEW WAVE', 'ホンマタカシ', '2007-06', 400, '写真', 'これはすごい本です', '20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 2, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:29:03', '2021-07-06 19:29:03'),
-(7, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706194246d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:42:46', '2021-07-06 19:42:46'),
 (8, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706194252d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:42:52', '2021-07-06 19:42:52'),
 (9, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706194512d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:45:12', '2021-07-06 19:45:12'),
 (10, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706194725d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 19:47:25', '2021-07-06 19:47:25'),
@@ -77,7 +72,55 @@ INSERT INTO `books` (`id`, `name`, `author`, `published`, `price`, `genre`, `des
 (22, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706200403d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 20:04:03', '2021-07-06 20:04:03'),
 (23, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706200411d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 20:04:11', '2021-07-06 20:04:11'),
 (24, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706200443d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 20:04:43', '2021-07-06 20:04:43'),
-(25, 'In the Wake 震災以後　：　日本の写真家がとらえた3.11', '新井 卓', '2015-06', 500, '写真集', '学生時代に買ったもので, ３回くらい読んでそれっきり本棚に飾ってある状態です. ', '../image/20210706200459d41d8cd98f00b204e9800998ecf8427e.jpg', 0, 7, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 20:04:59', '2021-07-06 20:04:59');
+(26, '東京の子供', 'ホンマタカシ', '2001-12', 800, '写真集', '廃盤なのでレアです', '../image/202107062024018c7bedc744527a5cad493a23c9c389f5.webp', 0, 10, NULL, NULL, NULL, NULL, NULL, 0, '2021-07-06 20:24:01', '2021-07-06 20:24:01');
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `places`
+--
+
+CREATE TABLE `places` (
+  `id` int(12) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `admin_id` int(12) NOT NULL,
+  `is_deleted` int(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `users_table`
+--
+
+CREATE TABLE `users_table` (
+  `id` int(12) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile` varchar(512) NOT NULL,
+  `icon` mediumblob NOT NULL,
+  `is_admin` int(1) NOT NULL,
+  `is_deleted` int(1) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `users_table`
+--
+
+INSERT INTO `users_table` (`id`, `name`, `email`, `password`, `address`, `profile`, `icon`, `is_admin`, `is_deleted`, `created_at`, `updated_at`) VALUES
+(1, '地図先生', 'tizu@example.com', 'tizutizu', '', '', '', 0, 0, '2021-06-19 17:04:18', '2021-06-19 17:26:55'),
+(2, 'Watson', 'watson@example.com', 'watson', '', '', '', 0, 0, '2021-06-19 17:04:50', '2021-06-19 17:04:50'),
+(3, 'hige', 'hige@example.com', 'higehige', '', '', '', 0, 0, '2021-06-19 17:28:11', '2021-06-19 17:28:11'),
+(4, 'miya', 'miya@example.com', 'miyamiya', '', '', '', 0, 0, '2021-07-05 02:26:14', '2021-07-05 02:26:14'),
+(5, '具志堅', 'gushiken@example.com', 'gushiken', '', '', '', 0, 0, '2021-07-05 02:26:36', '2021-07-05 02:26:36');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -90,6 +133,18 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
+-- テーブルのインデックス `places`
+--
+ALTER TABLE `places`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- テーブルのインデックス `users_table`
+--
+ALTER TABLE `users_table`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- ダンプしたテーブルの AUTO_INCREMENT
 --
 
@@ -97,7 +152,19 @@ ALTER TABLE `books`
 -- テーブルの AUTO_INCREMENT `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- テーブルの AUTO_INCREMENT `places`
+--
+ALTER TABLE `places`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
+
+--
+-- テーブルの AUTO_INCREMENT `users_table`
+--
+ALTER TABLE `users_table`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
