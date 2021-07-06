@@ -11,36 +11,63 @@ $pdo = connect_to_db();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/Register.css">
   <!-- マテリアルアイコン -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" href="../css/read.css"> -->
-  <link rel="icon" href="../image/icon.png">
 
   <title>本を登録する画面</title>
 </head>
 
 <body>
+
+  <div class="header">
+
+    <div class="header_left">
+      <img class="header_btn" src="../image/close_white_18dp.svg" alt="" onclick="location.href='../users_logout.php'">
+    </div>
+    <div class="header_center">
+      <p class="header_text">本の詳細情報</p>
+    </div>
+    <div class="header_right"></div>
+
+  </div>
+
+
+
   <form action="bookRegister_creat.php" method="post" enctype="multipart/form-data">
     <fieldset>
       <div class="record">
         <div class="formbook">
-          <label>本を登録する<br>
-            <input type="text" name="name" placeholder="本の名前" />
-            <input type="text" name="author" placeholder="著者名" />
-            <!-- 本当は「年」だけの４桁入力にしたいが実装できてない状態です -->
-            <input type="month" name="published" placeholder="出版時期" />
-            <input type="number" name="price" placeholder="¥" min="0" max="1000000" />
-            <input type="radio" name="genre" value="写真集">写真集
+
+          <div class="img">
+            <p class="category">本の画像</p>
+            <input type="file" name="image" accept="image/*">
+          </div>
+
+          <div class="info">
+            <p class="category">本の詳細</p>
+            <input type="text" name="name" placeholder="本の名前"></input>
+            <input type="text" name="author" placeholder="著者名"></input>
+            <input type="month" name="published"></input>
+            <textarea name="description" rows="5" cols="20"></textarea>
+          </div>
+
+          <div class="genre">
+            <!-- <input type="radio" name="genre" value="写真集">写真集
             <input type="radio" name="genre" value="画集">画集
             <input type="radio" name="genre" value="映画">映画
             <input type="radio" name="genre" value="ビジネス">ビジネス
-            <input type="radio" name="genre" value="IT・コンピュータ">IT・コンピュータ
-            <!-- まだまだジャンルの選択肢は沢山用意する予定！ -->
-            <textarea name="description" rows="5" cols="20">ここに商品説明を記載してください</textarea>
-            <input type="file" name="image" accept="image/*">
-          </label>
+            <input type="radio" name="genre" value="IT・コンピュータ">IT・コンピュータ -->
+          </div>
+
+          <!-- まだまだジャンルの選択肢は沢山用意する予定！ -->
+          <div class="price">
+            <p class="category">1週間あたりの価格</p>
+            <input type="number" name="price" placeholder="¥" min="0" max="1000000" />
+          </div>
+
+          <button class="btn">本を登録する</button>
         </div>
-        <button class="btn">本を登録する</button>
       </div>
     </fieldset>
   </form>
