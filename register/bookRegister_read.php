@@ -41,7 +41,12 @@ $pdo = connect_to_db();
 
           <div class="img">
             <p class="category">本の画像</p>
-            <input type="file" name="image" accept="image/*">
+            <label for="file" class="file_area">
+                <img class="file_btn" src="../image/images-regular.svg" alt="">
+            </label>
+            <input type="file" id="file" class="fileinput" name="post_image" accept="image/*" capture="camera">
+            <div id="preview"></div>
+
           </div>
 
           <div class="info">
@@ -49,7 +54,7 @@ $pdo = connect_to_db();
             <input type="text" name="name" placeholder="本の名前"></input>
             <input type="text" name="author" placeholder="著者名"></input>
             <input type="month" name="published"></input>
-            <textarea name="description" rows="5" cols="20"></textarea>
+            <textarea name="description" rows="10" cols="20" placeholder="商品の説明(任意 1,000文字以内)&#13;(本の内容、ページ数、言語、注意点など)&#13;&#13;写真がメインのデザイン集です。&#13;比較的スタンダードなものが多く参考にしやすいです。"></textarea>
           </div>
 
           <div class="genre">
@@ -75,6 +80,7 @@ $pdo = connect_to_db();
 
 
 
+  <script src="../Register.js"></script>
 
   <!-- これより下は元のデータのままです -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
