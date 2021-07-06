@@ -1,3 +1,89 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -6,14 +92,83 @@
     sans-serif;
 }
 
-body{
-    width: 360px;
-    height: 852px;
-  background: linear-gradient(-135deg, #fdfcfb, #5bf1eac9);
+body {
+  line-height: 1.8;
+  line-height: 2;
+  font-size: 18px;
+  color: var(--color_black);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+/* フォーム */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+}
+
+
+/* リセット */
+/* リセット */
+/* リセット */
+/* リセット */
+/* リセット */
+
+
+
+html{
+    width: 375px;
+    height: 812px;
+}
+
+
+body{
+    color: white;
+    width: 375px;
+    height: 812px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+
+
 .form_parent {
-    width: 360px;
+    width: 375px;
     margin: 64px auto;
     display: flex;
     justify-content: center;
@@ -22,9 +177,14 @@ body{
 }
 
 h1 {
-  margin: 60px 0px 36px 0px;
+  margin: 30px 0px 36px 0px;
   text-align: center;
   font-size: 16px;
+}
+
+.item_label{
+    font-size: 10px;
+    padding: 30px 0px 0px 0px;
 }
 
 .login_username, .login_password {
@@ -33,9 +193,8 @@ h1 {
 
 input {
     width: 260px;
-    height: 48px;
-    padding: 10px 16px 8px;
-    border: 1px solid rgb(143, 143, 143);
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-top: none;
     border-right: none;
     border-left: none;
@@ -43,9 +202,17 @@ input {
 }
 
 button {
-    width: 260px;
-    height: 40px;
-    border: 1px solid rgb(143, 143, 143);
+    font-size: 10px;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.touroku_btn{
+    margin-top: 45px;
+    text-align:  center;  
 }
 
 .login_btn {
@@ -57,5 +224,10 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 60px 40px 40px 40px;
+    margin: 140px 40px 40px 40px;
+}
+
+.person_text{
+    font-size: 10px;
+    padding-bottom: 10px;
 }

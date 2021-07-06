@@ -18,23 +18,24 @@
 
       <!-- 会員登録 -->
       <div class="form_group">
-        <p class="label">ニックネーム(20文字以内)
-
-        </p>
-        <input type="text" class="touroku_input" id="username" name="user_name" maxlength="20" validate="required blacklist" style="background-color: transparent;" placeholder="例)くまもとフジオ" required>
+        <p class="item_label">ニックネーム(20文字以内)</p>
+      </div>
+      <input type=" text" class="touroku_input" id="username" name="user_name" maxlength="20" validate="required blacklist" style="background-color: transparent;" required>
       </div>
 
       <div class="form_group">
-        <p class="label">メールアドレス</p>
-        <input type="email" class="touroku_input" id="email" name="email" validate="required blacklist mailadd" style="background-color: transparent;" placeholder="shima@example.com" required>
+        <p class="item_label">メールアドレス</p>
+      </div>
+      <input type="email" class="touroku_input" id="email" name="email" validate="required blacklist mailadd" style="background-color: transparent;" required>
       </div>
 
       <div class="form_group">
-        <p class="label">パスワード</p>
-        <input type="password" class="touroku_input" id="password" name="password" validate="required blacklist alpNumeric" style="background-color: transparent;" placeholder="8文字以上の半角英数記号" required>
+        <p class="item_label">パスワード(8文字以上の半角英数記号)</p>
+      </div>
+      <input type="password" class="touroku_input" id="password" name="password" validate="required blacklist alpNumeric" style="background-color: transparent;" required>
       </div>
 
-      <div>
+      <div class="touroku_btn">
         <button class="action_btn" style="background-color: transparent;">登録する</button>
       </div>
     </form>
@@ -42,10 +43,10 @@
 
     <div class="person_box">
       <p class="person_text">アカウントをお持ちの方</p>
-      <button class="action_btn" style="background-color: transparent;" onclick="location.href='../users_login.php'">ログイン画面へ</a>
+      <button class="action_btn" style="background-color: transparent;" onclick="location.href='../users_login.php'">ログインへ</a>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../kasho.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../kasho.js"></script> -->
 </body>
 
 </html>
