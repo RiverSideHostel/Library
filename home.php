@@ -2,9 +2,11 @@
 // session_start();
 include("functions.php");
 // check_session_id();
+var_dump("おめでとうございますHOMEです");
+exit();
+
 
 // $id = $_GET["id"];
-
 $pdo = connect_to_db();
 
 //テーマテーブルからのデータ呼び出し
@@ -29,30 +31,6 @@ if ($status == false) {
 }
 
 
-//ユーザーテーブルからのデータ呼び出し
-$sql2 = "SELECT * FROM users_table WHERE id=:id";
-
-$stmt2 = $pdo->prepare($sql2);
-$stmt2->bindValue(':id', $id, PDO::PARAM_INT);
-$status2 = $stmt2->execute();
-
-if ($status2 == false) {
-    $error = $stmt2->errorInfo();
-    echo json_encode(["error_msg" => "{$error[2]}"]);
-    exit();
-} else {
-    $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-    $output2 = "";
-    foreach ($result2 as $record) {
-        $output2 .= "<tr>";
-        $output2 .= "<td>{$record["username"]}</td>";
-        $output2 .= "<td><a href='profile_edit.php?id={$record["id"]}'>edit</a></td>";
-        $output2 .= "<td><a href='profile_delete.php?id={$record["id"]}'>delete</a></td>";
-        $output2 .= "<td><img src={$record["usericon"]} height ='150px' ></td>";
-        $output2 .= "</tr>";
-    }
-    unset($value);
-}
 
 ?>
 
@@ -82,29 +60,22 @@ if ($status2 == false) {
             <tbody><?= $output ?></tbody>
         </table>
 
-    </div>
-    <script src="button.js"></script>
-    <script>
-        const hoge = <?= json_encode($output) ?>;
-        const hoge2 = <?= json_encode($output2) ?>;
-        console.log(hoge);
-        console.log(hoge2);
-    </script>
 
-    <!-- カードタイプで画像ファイルを表示させるためのコード -->
-    <div class="container">
-        <h3 class="py-3 text-nowrap" style="color:#24A6E9;">LAB5の最近の出来事（一覧画面）</h3>
-        <div class="row" id="output">
+
+        <!-- カードタイプで画像ファイルを表示させるためのコード -->
+        <div class="container">
+            <h3 class="py-3 text-nowrap" style="color:#24A6E9;">LAB5の最近の出来事（一覧画面）</h3>
+            <div class="row" id="output">
+            </div>
+            <a href="website_form_input.php" class="btn btn-secondary mb-3" role="button">登録画面</a>
         </div>
-        <a href="website_form_input.php" class="btn btn-secondary mb-3" role="button">登録画面</a>
-    </div>
-    <!-- jpuery読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        const data = <?= json_encode($result2) ?>;
-        const output_data = [];
-        data.forEach(function(x) {
-            output_data.push(`
+        <!-- jpuery読み込み -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script>
+            const data = <?= json_encode($result2) ?>;
+            const output_data = [];
+            data.forEach(function(x) {
+                output_data.push(`
       <div class="col-sm-3 my-3">
         <img src=${x.usericon} class="card-img-top" alt="...">
         <div class="card" style="background-color: #24A6E9; color: white;">
@@ -125,23 +96,23 @@ if ($status2 == false) {
         </div>
       </div>
       `)
-        });
-        $("#output").html(output_data);
-        // 削除クリックしてアラートで確認
-        $(".delete").on("click", function() {
-            let checkDeleteFlg = window.confirm("削除しますか？");
-            if (checkDeleteFlg) {
-                const id_num = $(this).next("p").html();
-                location.href = `website_form_delete.php?id=${id_num}`;
-                alert("削除を実行しました。");
-            } else {
-                alert("削除をキャンセルしました。");
-            }
-        });
-    </script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+            });
+            $("#output").html(output_data);
+            // 削除クリックしてアラートで確認
+            $(".delete").on("click", function() {
+                let checkDeleteFlg = window.confirm("削除しますか？");
+                if (checkDeleteFlg) {
+                    const id_num = $(this).next("p").html();
+                    location.href = `website_form_delete.php?id=${id_num}`;
+                    alert("削除を実行しました。");
+                } else {
+                    alert("削除をキャンセルしました。");
+                }
+            });
+        </script>
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>
 <!-- profile -->
 
