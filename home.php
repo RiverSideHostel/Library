@@ -12,6 +12,9 @@ $sql = "SELECT * FROM books WHERE is_deleted = 0 ORDER BY updated_at DESC";
 
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
+// var_dump($status);
+// exit();
+
 
 if ($status == false) {
     $error = $stmt->errorInfo();
@@ -19,7 +22,37 @@ if ($status == false) {
     exit();
 } else {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($result);
+    // exit();
 }
+
+
+// ここからは検索フォームのコード
+if (isset($_GET['search'])) {
+    $search = htmlspecialchars($_GET['search']);
+    $search_value = $search;
+} else {
+    $search = '';
+    $search_value = '';
+}
+
+$pdo2 = connect_to_db();
+// $sql2 = "SELECT * FROM books WHERE is_deleted = 0, name , authorLIKE '%$search%'";
+$sql2 = "SELECT * FROM books WHERE name LIKE '%$search%' OR  author LIKE '%$search%' AND is_deleted = 0";
+$stmt2 = $pdo2->prepare($sql2);
+$status2 = $stmt2->execute();
+
+
+if ($status2 == false) {
+    $error2 = $stmt2->errorInfo();
+    echo json_encode(["error_msg" => "{$error2[2]}"]);
+    exit();
+} else {
+    $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($result2);
+    // exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,32 +73,67 @@ if ($status == false) {
         <div>
             <h1>Home</h1>
         </div>
+        <!-- 検索欄 -->
+        <!-- <form action="" method="get">
+            <input type="text" name="search" value="<?php echo $_GET['search'] ?>" placeholder=" どんな本をお探しですか？">
+        </form> -->
+        <form action="" method="get">
+            <input type="text" name="search" value="<?php echo $search_value ?>"><br>
+            <input type="submit" name="" value="検索">
+        </form>
+
         <div class="users"><img class="icon" src="<?= $_SESSION["usericon"] ?>"><?= $_SESSION["username"] ?></div>
-        <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録する</button>
+        <button class="button" type=“button” onclick="location.href='genre.php?id= <?= $_SESSION['id'] ?>'">ジャンルで検索</button>
+        <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録</button>
         <button class="button" type=“button” onclick="location.href='users_edit.php?id= <?= $_SESSION['id'] ?>'">プロフィール</button>
         <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button>
     </div>
     <div class="main_body">
-        <!-- 検索蘭 -->
-
+        <!-- 検索結果をここにカードタイプで吐き出す -->
+        <div class=" container">
+            <div class="row" id="output2"></div>
+        </div>
 
         <!-- カードタイプで画像ファイルを表示させるためのコード -->
-        <div class="container">
+        <div class=" container">
             <!-- ここにカード一式が順次吐き出されてくる -->
-            <div class="row" id="output"></div>
+            <!-- <div class="row" id="output"></div> -->
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
         <script>
-            //カード型の挿入HTMLここから
-            const data = <?= json_encode($result) ?>;
-            const output_data = []; //空の配列を作ってそこのプッシュでぽいぽいしてく
-            data.forEach(function(x) {
-                output_data.push(`
+            //ホーム画面のカード型の挿入HTMLここから
+            //     const data = <?= json_encode($result) ?>;
+            //     const output_data = []; //空の配列を作ってそこのプッシュでぽいぽいしてく
+            //     data.forEach(function(x) {
+            //         output_data.push(`
+            // <div class="col-sm-3 my-3">
+            // <div class="card" style="color: black;">
+            //     <img src="image/${x.image}" class="card-img-top" alt="...">
+            //     <div class="card-body" style="max-width: 150px;">
+            //     <h5 class="card-title" id="name">${x.name}</h5>
+            //     <h5 class="card-title" id="name">${x.author}</h5>
+            //     <h5 class="card-title" id="name">${x.price}</h5>
+            //     </div>
+            //     <div class="border-bottom p-2 d-grid gap-2 d-md-flex justify-content-sm-end">
+            //     <p hidden>${x.id}</p>
+            //     </div>
+            // </div>
+            // </div>
+            // `)
+            //     });
+            //     console.log(output_data);
+            //     $("#output").html(output_data);
+            //カード型の挿入HTMLここまで
+
+            //検索結果の表示 カード型の挿入HTMLここから
+            const data2 = <?= json_encode($result2) ?>;
+            const output_data2 = []; //空の配列を作ってそこのプッシュでぽいぽいしてく
+            data2.forEach(function(x) {
+                output_data2.push(`
         <div class="col-sm-3 my-3">
         <div class="card" style="color: black;">
-            <img src=${x.image} class="card-img-top" alt="...">
+            <img src="image/${x.image}" class="card-img-top" alt="...">
             <div class="card-body" style="max-width: 150px;">
             <h5 class="card-title" id="name">${x.name}</h5>
             <h5 class="card-title" id="name">${x.author}</h5>
@@ -78,7 +146,7 @@ if ($status == false) {
         </div>
         `)
             });
-            $("#output").html(output_data);
+            $("#output2").html(output_data2);
             //カード型の挿入HTMLここまで
         </script>
         <!-- Option 2: Separate Popper and Bootstrap JS -->
