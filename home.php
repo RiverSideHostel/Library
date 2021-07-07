@@ -132,8 +132,8 @@ if ($status2 == false) {
             data2.forEach(function(x) {
                 output_data2.push(`
         <div class="col-sm-3 my-3">
-        <form action="input.php" method="post">
-        <button class="card" style="color: black;" onclick="location.href='book_details.php?id=${x.id}'" >
+        <form action="book_details.php" method="get">
+        <button class="card" style="color: black;"  >
             <img src="image/${x.image}" class="card-img-top" alt="...">
             <div class="card-body" style="max-width: 150px;">
             <h5 class="card-title" id="name">${x.name}</h5>
@@ -141,7 +141,7 @@ if ($status2 == false) {
             <h5 class="card-title" id="name">${x.price}</h5>
             </div>
             <div class="border-bottom p-2 d-grid gap-2 d-md-flex justify-content-sm-end">
-            <p hidden>${x.id}</p>
+            <input name="id" type="hidden" value="${x.id}">
             </div>
         </button>
         </div>
