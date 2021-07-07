@@ -10,6 +10,7 @@ $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 
+
 if ($status == false) {
     $error = $stmt->errorInfo();
     echo json_encode(["error_msg" => "{$error[2]}"]);
