@@ -61,7 +61,7 @@ if ($status == false) {
             <?= $output ?>
         </tbody>
     </div>
-    <form action='bookBorrow_creat.php' method="get">
+    <form action='bookBorrow_creat.php' method="post">
         <label for="trade">トレードタイプを選択してください</label>
         <select name="trade_type" id="trade">
             <option value="郵送">郵送</option>
@@ -70,7 +70,7 @@ if ($status == false) {
         <label for="date">受取日</label>
         <input type="date" name="receipt_date" id="date">
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="submit">この本を借りる</input>
+        <input type="submit" value="この本を借りる">
     </form>
     <button class="button" type=“button” onclick="location.href='home.php'">同じ本を貸しに出す</button>
 

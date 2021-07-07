@@ -3,10 +3,16 @@
 use function PHPSTORM_META\exitPoint;
 
 session_start();
-// var_dump($_SESSION['ID']);
-// var_dump($_SESSION['NAME']);
-// exit('ok');
 include("functions.php");
+
+//入力されてないと弾くやつ
+if (
+    !isset($_POST['trade_type']) || $_POST['trade_type'] == '' ||
+    !isset($_POST['receipt_date']) || $_POST['receipt_date'] == ''
+) {
+    echo json_encode(["error_msg" => "no input"]);
+    exit();
+}
 
 $id = $_GET["id"];
 $trade_type = $_GET["trade_type"];
@@ -36,6 +42,6 @@ if ($status == false) {
     echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
-    header('Location:/LAB5/RiverSideHostel/bookBorrow_result.php/');
+    header('Location:bookBorrow_result.php');
     exit();
 }
