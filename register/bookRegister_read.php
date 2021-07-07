@@ -1,7 +1,6 @@
 <?php
 include("../functions.php");
-// session_start();
-// check_session_id();
+session_start();
 $pdo = connect_to_db();
 ?>
 
@@ -44,7 +43,7 @@ $pdo = connect_to_db();
             <label for="file" class="file_area">
               <img class="file_btn" src="../image/images-regular.svg" alt="">
             </label>
-            <input type="file" id="file" class="fileinput" name="post_image" accept="image/*" capture="camera">
+            <input type="file" id="file" class="fileinput" name="image" accept="image/*" capture="camera">
             <div id="preview"></div>
 
           </div>

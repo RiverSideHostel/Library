@@ -1,7 +1,6 @@
 <?php
-// session_start();
+session_start();
 include("functions.php");
-// check_session_id();
 // var_dump("おめでとうございますHOMEです");
 // exit();
 $pdo = connect_to_db();
@@ -86,7 +85,7 @@ if ($status2 == false) {
         <button class="button" type=“button” onclick="location.href='genre.php?id= <?= $_SESSION['id'] ?>'">ジャンルで検索</button>
         <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録</button>
         <button class="button" type=“button” onclick="location.href='users_edit.php?id= <?= $_SESSION['id'] ?>'">プロフィール</button>
-        <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button>
+        <button class="button" type=“button” onclick="location.href='/LAB5/RiverSideHostel/users_login.php'">ログアウト</button>
     </div>
     <div class="main_body">
         <!-- 検索結果をここにカードタイプで吐き出す -->
@@ -94,47 +93,17 @@ if ($status2 == false) {
             <div class="row" id="output2"></div>
         </div>
 
-        <!-- カードタイプで画像ファイルを表示させるためのコード -->
-        <div class=" container">
-            <!-- ここにカード一式が順次吐き出されてくる -->
-            <!-- <div class="row" id="output"></div> -->
-        </div>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
-            //ホーム画面のカード型の挿入HTMLここから
-            //     const data = <?= json_encode($result) ?>;
-            //     const output_data = []; //空の配列を作ってそこのプッシュでぽいぽいしてく
-            //     data.forEach(function(x) {
-            //         output_data.push(`
-            // <div class="col-sm-3 my-3">
-            // <div class="card" style="color: black;">
-            //     <img src="image/${x.image}" class="card-img-top" alt="...">
-            //     <div class="card-body" style="max-width: 150px;">
-            //     <h5 class="card-title" id="name">${x.name}</h5>
-            //     <h5 class="card-title" id="name">${x.author}</h5>
-            //     <h5 class="card-title" id="name">${x.price}</h5>
-            //     </div>
-            //     <div class="border-bottom p-2 d-grid gap-2 d-md-flex justify-content-sm-end">
-            //     <p hidden>${x.id}</p>
-            //     </div>
-            // </div>
-            // </div>
-            // `)
-            //     });
-            //     console.log(output_data);
-            //     $("#output").html(output_data);
-            //カード型の挿入HTMLここまで
-
             //検索結果の表示 カード型の挿入HTMLここから
             const data2 = <?= json_encode($result2) ?>;
             const output_data2 = []; //空の配列を作ってそこのプッシュでぽいぽいしてく
             data2.forEach(function(x) {
                 output_data2.push(`
         <div class="col-sm-3 my-3">
-        <form action="book_details.php" method="get">
-        <button class="card" style="color: black;"  >
-            <img src="image/${x.image}" class="card-img-top" alt="...">
+        <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
+        <button type="submit" class="card" style="color: black; " >
+            <img src="${x.image}" class="card-img-top" alt="...">
             <div class="card-body" style="max-width: 150px;">
             <h5 class="card-title" id="name">${x.name}</h5>
             <h5 class="card-title" id="name">${x.author}</h5>
@@ -144,6 +113,7 @@ if ($status2 == false) {
             <input name="id" type="hidden" value="${x.id}">
             </div>
         </button>
+        </form>
         </div>
         `)
             });
