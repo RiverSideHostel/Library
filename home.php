@@ -70,12 +70,12 @@ if ($status2 == false) {
 </head>
 
 <body>
-  
+
     <div class="wrapper">
         <div id="search-wrap">
             <form class="header" action="" method="get" crole="search">
                 <div class="bars"><img src="./image/bars-solid.svg" alt="" width="30px"></div>
-                <div class="abe"><img src="./image/202106211415554ccca1ff03bf4ebc3acb2275ba01d593.png" width="80px" alt=""></div>
+                <!-- <div class="abe"><img src="./image/202106211415554ccca1ff03bf4ebc3acb2275ba01d593.png" width="80px" alt=""></div> -->
                 <input type="text" name="search" id="search-text" value="<?php echo $search_value ?>">
                 <i class="fa fa-search"></i>
                 <input type="submit" value="" name="">
@@ -97,9 +97,9 @@ if ($status2 == false) {
 
             <footer>
                 <div class="footer_wrapper">
-                    <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"></button>
+                    <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"><img src="./image/shopping_cart_black_24dp.svg" width="30px" alt=""></button>
                     <button class="button" type=“button” class="footer_btn_center" onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></button>
-                    <button id="reload" class="footer_btn_right"></button>
+                    <button id="reload" class="footer_btn_right"><img src="./image/user-circle-solid.svg" width="30px" alt=""></button>
                 </div>
             </footer>
 
@@ -110,7 +110,7 @@ if ($status2 == false) {
             <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button> -->
 
         </div>
- 
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             //検索結果の表示 カード型の挿入HTMLここから
@@ -120,8 +120,8 @@ if ($status2 == false) {
                 output_data2.push(`
         <div class="col-sm-3 my-3">
         <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
-        <button type="submit" class="card" style="color: black; " >
-            <img src="${x.image}" class="card-img-top" alt="...">
+        <button type="submit" class="card" style="color: white; " >
+            <img src="image/${x.image}" class="card-img-top" alt="...">
             <div class="card-body" style="max-width: 150px;">
             <h5 class="card-title" id="name">${x.name}</h5>
             <h5 class="card-title" id="name">${x.author}</h5>
