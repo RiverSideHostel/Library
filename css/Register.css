@@ -250,7 +250,7 @@ h1 {
 }
 
 input{
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   color: white;
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -271,7 +271,7 @@ input{
 }
 
 .file_area{
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
@@ -314,9 +314,8 @@ input[type="month"]::-webkit-calendar-picker-indicator {
 .genre_area{
   display: flex;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.1);
 
 }
 
@@ -340,7 +339,7 @@ textarea{
   color: white;
   flex-direction: column;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   padding: 10px;
 }
 
@@ -352,7 +351,7 @@ textarea{
 }
 
 .profit{
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
   color: white;
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.4);
