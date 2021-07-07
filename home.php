@@ -63,43 +63,53 @@ if ($status2 == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href= /> 使ってないcss-->
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-1/css/7-2-1.css">
+    <link rel="stylesheet" href="./css/home.css">
     <title>HOME</title>
 
 </head>
 
 <body>
-    <div class="head">
-        <div>
-            <h1>Home</h1>
-        </div>
-        <!-- 検索欄 -->
-        <!-- <form action="" method="get">
-            <input type="text" name="search" value="<?php echo $_GET['search'] ?>" placeholder=" どんな本をお探しですか？">
-        </form> -->
-        <form action="" method="get">
-            <input type="text" name="search" value="<?php echo $search_value ?>"><br>
-            <input type="submit" name="" value="検索">
-        </form>
-
-        <div class="users"><img class="icon" src="<?= $_SESSION["usericon"] ?>"><?= $_SESSION["username"] ?></div>
-        <button class="button" type=“button” onclick="location.href='genre.php?id= <?= $_SESSION['id'] ?>'">ジャンルで検索</button>
-        <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録</button>
-        <button class="button" type=“button” onclick="location.href='users_edit.php?id= <?= $_SESSION['id'] ?>'">プロフィール</button>
-        <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button>
-    </div>
-    <div class="main_body">
-        <!-- 検索結果をここにカードタイプで吐き出す -->
-        <div class=" container">
-            <div class="row" id="output2"></div>
+    <div class="wrapper">
+        <div id="search-wrap">
+            <form class="header" action="" method="get" crole="search">
+                <div class="bars"><img src="./image/bars-solid.svg" alt="" width="30px"></div>
+                <div class="abe"><img src="./image/202106211415554ccca1ff03bf4ebc3acb2275ba01d593.png" width="80px" alt=""></div>
+                <input type="text" name="search" id="search-text" value="<?php echo $search_value ?>">
+                <i class="fa fa-search"></i>
+                <input type="submit" value="" name="">
+            </form>
         </div>
 
-        <!-- カードタイプで画像ファイルを表示させるためのコード -->
-        <div class=" container">
-            <!-- ここにカード一式が順次吐き出されてくる -->
-            <!-- <div class="row" id="output"></div> -->
-        </div>
 
+        <div class="main_body">
+            <!-- 検索結果をここにカードタイプで吐き出す -->
+            <div class="container">
+                <div class="row" id="output2"></div>
+            </div>
+
+            <!-- カードタイプで画像ファイルを表示させるためのコード -->
+            <div class=" container">
+                <!-- ここにカード一式が順次吐き出されてくる -->
+                <!-- <div class="row" id="output"></div> -->
+            </div>
+
+            <footer>
+                <div class="footer_wrapper">
+                    <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"></button>
+                    <button class="button" type=“button” class="footer_btn_center" onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></button>
+                    <button id="reload" class="footer_btn_right"></button>
+                </div>
+            </footer>
+
+            <!-- <div class="users"><img class="icon" src="<?= $_SESSION["usericon"] ?>"><?= $_SESSION["username"] ?></div>
+            <button class="button" type=“button” onclick="location.href='genre.php?id= <?= $_SESSION['id'] ?>'">ジャンルで検索</button>
+            <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録</button>
+            <button class="button" type=“button” onclick="location.href='users_edit.php?id= <?= $_SESSION['id'] ?>'">プロフィール</button>
+            <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button> -->
+
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             //ホーム画面のカード型の挿入HTMLここから
@@ -140,7 +150,7 @@ if ($status2 == false) {
             <h5 class="card-title" id="name">${x.author}</h5>
             <h5 class="card-title" id="name">${x.price}</h5>
             </div>
-            <div class="border-bottom p-2 d-grid gap-2 d-md-flex justify-content-sm-end">
+            <div>
             <input name="id" type="hidden" value="${x.id}">
             </div>
         </button>
