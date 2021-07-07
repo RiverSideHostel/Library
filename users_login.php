@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="css/kasho.css"> -->
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="./css/login.css">
 
   <title>ログイン画面</title>
 </head>
@@ -21,14 +21,20 @@
 
 
     <!-- ログイン -->
-    <form class="form" action="./users_login_act.php" method="post">
+    <form class="form_parent" action="./users_login_act.php" method="post">
 
 
       <div>
-        <input type="text" class="login_username" name="user_name" placeholder="ユーザー名" style="background-color: transparent;">
+        <div class="form_group">
+          <p class="item_label">ニックネーム</p>
+        </div>
+        <input type="text" class="login_username" name="user_name" style="background-color: transparent;">
       </div>
       <div>
-        <input type="password" class="login_password" name="password" placeholder="パスワード" style="background-color: transparent;">
+        <div class="form_group">
+          <p class="item_label">パスワード</p>
+        </div>
+        <input type="password" class="login_password" name="password" style="background-color: transparent;">
       </div>
 
       <div>

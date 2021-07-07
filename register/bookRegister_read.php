@@ -42,7 +42,7 @@ $pdo = connect_to_db();
           <div class="img">
             <p class="category">本の画像</p>
             <label for="file" class="file_area">
-                <img class="file_btn" src="../image/images-regular.svg" alt="">
+              <img class="file_btn" src="../image/images-regular.svg" alt="">
             </label>
             <input type="file" id="file" class="fileinput" name="post_image" accept="image/*" capture="camera">
             <div id="preview"></div>
@@ -53,22 +53,27 @@ $pdo = connect_to_db();
             <p class="category">本の詳細</p>
             <input type="text" name="name" placeholder="本の名前"></input>
             <input type="text" name="author" placeholder="著者名"></input>
+            <div class="genre_area">
+              <select class="genre" name="genre" id="">
+                <option value="写真集">写真集</option>
+                <option value="画集">画集</option>
+                <option value="映画">映画</option>
+                <option value="ビジネス">ビジネス</option>
+                <option value="IT・コンピュータ">IT・コンピュータ</option>
+              </select>
+              <div class="select_btn">
+                <img src="../image/chevron-down-solid.svg" width="10px" alt="">
+              </div>
+            </div>
             <input type="month" name="published"></input>
             <textarea name="description" rows="10" cols="20" placeholder="商品の説明(任意 1,000文字以内)&#13;(本の内容、ページ数、言語、注意点など)&#13;&#13;写真がメインのデザイン集です。&#13;比較的スタンダードなものが多く参考にしやすいです。"></textarea>
-          </div>
-
-          <div class="genre">
-            <!-- <input type="radio" name="genre" value="写真集">写真集
-            <input type="radio" name="genre" value="画集">画集
-            <input type="radio" name="genre" value="映画">映画
-            <input type="radio" name="genre" value="ビジネス">ビジネス
-            <input type="radio" name="genre" value="IT・コンピュータ">IT・コンピュータ -->
           </div>
 
           <!-- まだまだジャンルの選択肢は沢山用意する予定！ -->
           <div class="price">
             <p class="category">1週間あたりの価格</p>
             <input type="number" name="price" placeholder="¥" min="0" max="1000000" />
+            <p class="profit">貸出利益</p>
           </div>
 
           <button class="btn">本を登録する</button>

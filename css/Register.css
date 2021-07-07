@@ -222,19 +222,18 @@ background-position: 0% 50%
 }
 
 .header_text{
-    display: flex;
-    font-size: 16px;
-    font-weight: bold;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .formbook {
-    width: 414px;
-    margin: 64px auto;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 414px;
+  margin: 64px auto;
+  margin-top: 70px;    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -301,9 +300,6 @@ input{
   border-radius: 50%; */
 }
 
-
-
-
 .info{
   margin-bottom: 50px;
   width: 100%;
@@ -311,9 +307,37 @@ input{
   flex-direction: column;
 }
 
+input[type="month"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.genre_area{
+  display: flex;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+.genre{
+  color: white;
+  width: 55px;
+  height: 40px;
+  font-size: 13px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.select_btn{
+  padding-top: 1px;
+}
+
 textarea{
   width: 100%;
   display: flex;
+  color: white;
   flex-direction: column;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.1);
@@ -325,6 +349,21 @@ textarea{
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.profit{
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  padding: 10px;
+
 }
 
 button {
