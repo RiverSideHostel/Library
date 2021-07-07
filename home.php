@@ -70,7 +70,7 @@ if ($status2 == false) {
 </head>
 
 <body>
-  
+
     <div class="wrapper">
         <div id="search-wrap">
             <form class="header" action="" method="get" crole="search">
@@ -89,12 +89,6 @@ if ($status2 == false) {
                 <div class="row" id="output2"></div>
             </div>
 
-            <!-- カードタイプで画像ファイルを表示させるためのコード -->
-            <div class=" container">
-                <!-- ここにカード一式が順次吐き出されてくる -->
-                <!-- <div class="row" id="output"></div> -->
-            </div>
-
             <footer>
                 <div class="footer_wrapper">
                     <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"></button>
@@ -110,7 +104,7 @@ if ($status2 == false) {
             <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button> -->
 
         </div>
- 
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             //検索結果の表示 カード型の挿入HTMLここから
@@ -123,9 +117,9 @@ if ($status2 == false) {
         <button type="submit" class="card" style="color: black; " >
             <img src="${x.image}" class="card-img-top" alt="...">
             <div class="card-body" style="max-width: 150px;">
-            <h5 class="card-title" id="name">${x.name}</h5>
-            <h5 class="card-title" id="name">${x.author}</h5>
-            <h5 class="card-title" id="name">${x.price}</h5>
+            <h1 class="card-title" id="name">${x.name}</h1>
+            <h2 class="card-title" id="name">${x.author}</h2>
+            <h3 class="card-title" id="name">¥${x.price}</h3>
             </div>
             <div>
             <input name="id" type="hidden" value="${x.id}">

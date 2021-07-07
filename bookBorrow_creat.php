@@ -14,7 +14,7 @@ $receipt_date = $_GET["receipt_date"];
 $return_date = date('Y-m-d', strtotime("$receipt_date  +1 week"));
 $pdo = connect_to_db();
 
-$sql = "UPDATE books SET borrow_user_id=:borrow_user_id, trade_type=:trade_type, receipt_date=:receipt_date, return_date=:return_date, updated_at = sysdate() WHERE id=:id";
+$sql = "UPDATE books SET status = 1 , borrow_user_id=:borrow_user_id, trade_type=:trade_type, receipt_date=:receipt_date, return_date=:return_date, updated_at = sysdate() WHERE id=:id";
 // $sql = "INSERT INTO books(id, name, author, published, price, genre, description, image, status, user_id, borrow_user_id, trade_type, place_name, receipt_date, return_date, is_deleted, created_at, updated_at) 
 // VALUES (NULL, :name, :author, :published, :price, :genre, :description, :image,0,10, NULL, NULL, NULL, NULL, NULL,0,sysdate(),sysdate())";
 // var_dump($sql);
@@ -39,4 +39,3 @@ if ($status == false) {
     header('Location:/LAB5/RiverSideHostel/bookBorrow_result.php/');
     exit();
 }
-
