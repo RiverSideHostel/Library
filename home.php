@@ -1,13 +1,11 @@
 <?php
 session_start();
 include("functions.php");
-// var_dump("おめでとうございますHOMEです");
-// exit();
+
 $pdo = connect_to_db();
 
 //booksテーブルからのデータ呼び出し
 $sql = "SELECT * FROM books WHERE is_deleted = 0 ORDER BY updated_at DESC";
-// $sql = "SELECT * FROM books  INNER JOIN photo_table ON users_table.id = photo_table.contributor_id ORDER BY come_updated_at DESC";
 
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();

@@ -1,41 +1,70 @@
 <?php
 
 use function PHPSTORM_META\exitPoint;
-
 session_start();
-// var_dump($_SESSION['ID']);
-// var_dump($_SESSION['NAME']);
-// exit('ok');
 include("functions.php");
 
 $id = $_GET["id"];
-$trade_type = $_GET["trade_type"];
-$receipt_date = $_GET["receipt_date"];
-$return_date = date('Y-m-d', strtotime("$receipt_date  +1 week"));
+var_dump($id);
+exit("ok?");
+
 $pdo = connect_to_db();
-
-$sql = "UPDATE books SET borrow_user_id=:borrow_user_id, trade_type=:trade_type, receipt_date=:receipt_date, return_date=:return_date, updated_at = sysdate() WHERE id=:id";
-// $sql = "INSERT INTO books(id, name, author, published, price, genre, description, image, status, user_id, borrow_user_id, trade_type, place_name, receipt_date, return_date, is_deleted, created_at, updated_at) 
-// VALUES (NULL, :name, :author, :published, :price, :genre, :description, :image,0,10, NULL, NULL, NULL, NULL, NULL,0,sysdate(),sysdate())";
-// var_dump($sql);
-// exit();
-
+$sql = "SELECT * FROM books WHERE id=:id";
+// $sql = "UPDATE books SET borrow_user_id=:borrow_user_id, trade_type=:trade_type, receipt_date=:receipt_date, return_date=:return_date, updated_at = sysdate() WHERE id=:id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':borrow_user_id', $_SESSION['ID'], PDO::PARAM_INT);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->bindValue(':trade_type', $trade_type, PDO::PARAM_STR);
-$stmt->bindValue(':receipt_date', $receipt_date, PDO::PARAM_STR);
-$stmt->bindValue(':return_date', $return_date, PDO::PARAM_STR);
 $status = $stmt->execute();
-
-// var_dump($status);
-// exit();
 
 if ($status == false) {
     $error = $stmt->errorInfo();
     echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
-    header('Location:/LAB5/RiverSideHostel/home.php/');
-    exit();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $output = "";
+    foreach ($result as $record) {
+        $output .= "<tr>";
+        $output .= "<td><img src='image/{$record["image"]}'></td><br>";
+        $output .= "<td><p>- 商品概要 -</p></td><br>";
+        $output .= "<td>{$record["name"]}</td><br>";
+        $output .= "<td>{$record["author"]}</td><br>";
+        $output .= "<td>{$record["published"]}</td><br>";
+        $output .= "<td>{$record["genre"]}</td><br>";
+        $output .= "<td><p></p></td><br>";
+        $output .= "<td><p>- 取引概要 -</p></td><br>";
+        $output .= "<td>１週間貸出：¥{$record["price"]}</td><br>";
+        $output .= "<td>引渡方法：{$record["trade_type"]}</td><br>";
+        $output .= "<td>受取予定日：{$record["receipt_date"]}</td><br>";
+        $output .= "<td>返却予定日：{$record["return_date"]}</td><br>";
+        $output .= "<td>貸出人：{$_SESSION['NAME']}</td><br>";
+        $output .= "</tr>";
+    }
 }
+
+// header('Location:/LAB5/RiverSideHostel/home.php/');
+// exit();
+?>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取引内容の確認画面</title>
+</head>
+
+<body>
+
+
+    <div class=" container">
+        <tbody>
+            <?= $output ?>
+        </tbody>
+    </div>
+
+    <button class="button" type=“button” onclick="location.href='home.php'">HOMEへ</button>
+
+</body>
+</html>
