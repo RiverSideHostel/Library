@@ -3,14 +3,29 @@ include("functions.php");
 // session_start();
 // check_session_id();
 $id = $_GET["id"];
+// var_dump($id);
+// exit();
 $pdo = connect_to_db();
+$sql = 'SELECT * FROM books WHERE id = :id';
 
-$sql = 'SELECT * FROM users_table WHERE id=:id';
+$stmt = $pdo->prepare($sql);
+$status = $stmt->execute();
+
+
+
+
+if ($status == false) {
+    $error = $stmt->errorInfo();
+    echo json_encode(["error_msg" => "{$error[2]}"]);
+    exit();
+} else {
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -32,8 +47,8 @@ $sql = 'SELECT * FROM users_table WHERE id=:id';
     <script>
         //URL末尾？移行をユーザーネームとして情報を吸い上げる処理
         // location.search.substring(1)は、URLから最初の4文字 ("?id="までの記号) を除いた文字列を取得する
-        const id = location.search.substring(4);
-        console.log(id);
+        // const id = location.search.substring(4);
+        // console.log(id);
 
         //ホーム画面のカード型の挿入HTMLここから
         const data = <?= json_encode($result) ?>;
