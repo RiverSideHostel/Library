@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("../functions.php");
-// check_session_id();
 // var_dump($_POST);
 // exit();
 
@@ -62,19 +61,11 @@ if (is_uploaded_file($temp_path)) {
 $pdo = connect_to_db();
 // var_dump($description);
 // exit();
-// $sql = 'INSERT INTO books(id, name, author, published, price, genre, description, image, status, user_id, borrow_user_id, trade_type, place_name, receipt_date, return_date, is_deleted, created_at, updated_at) VALUES(NULL, :name, :author,:published,:price, :genre, :description, :image, 0, NULL , NULL , NULL, NULL, NULL, NULL, 0, sysdate(), sysdate())';
-// $sql = 'INSERT INTO books(id, name, author, published, price, genre, description, image, status, user_id, borrow_user_id, trade_type, place_name, receipt_date, return_date, is_deleted, created_at, updated_at) 
-// VALUES(NULL, :name, :author,:published,:price, :genre, :description, :image, 0, NULL , 0 , NULL, NULL, NULL, NULL, 0, sysdate(), sysdate())';
-// $sql = 'INSERT INTO books(id, name, author, published, price, genre, description, image, created_at, updated_at) 
-// VALUES(NULL, :name, :author,:published,:price, :genre, :description, :image, sysdate(), sysdate())';
-// $sql = 'INSERT INTO books(`id`, `name`, `author`, `published`, `price`, `genre`, `description`, `image`, `status`, `user_id`, `borrow_user_id`, `trade_type`, `place_name`, `receipt_date`, `return_date`, `is_deleted`, `created_at`, `updated_at`) 
-// VALUES ('NULL','宮川','ホンマタカシ','2015-06','400','写真','これはすごい本です','20210706164600d41d8cd98f00b204e9800998ecf8427e.jpg','0','2','4','コンビニ','NULL','NULL','NULL','0',sysdate(),sysdate())';
 $sql = "INSERT INTO books(id, name, author, published, price, genre, description, image, status, user_id, borrow_user_id, trade_type, place_name, receipt_date, return_date, is_deleted, created_at, updated_at) 
-VALUES (NULL, :name, :author, :published, :price, :genre, :description, :image,0,10, NULL, NULL, NULL, NULL, NULL,0,sysdate(),sysdate())";
-// var_dump($sql);
-// exit();
+VALUES (NULL, :name, :author, :published, :price, :genre, :description, :image, 0, :id, NULL, NULL, NULL, NULL, NULL,0,sysdate(),sysdate())";
 
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $_SESSION['ID'], PDO::PARAM_INT);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->bindValue(':author', $author, PDO::PARAM_STR);
 $stmt->bindValue(':published', $published, PDO::PARAM_STR);
