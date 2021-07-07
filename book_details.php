@@ -23,7 +23,7 @@ if ($status == false) {
         $output .= "<td>{$record["author"]}</td><br>";
         $output .= "<td>{$record["published"]}</td><br>";
         $output .= "<td>{$record["genre"]}</td><br>";
-        $output .= "<td>{$record["price"]}</td><br>";
+        $output .= "<td>¥{$record["price"]}</td><br>";
         $output .= "<td><p>貸出できます</p></td><br>";
         $output .= "<td>{$record["description"]}</td>";
         $output .= "</tr>";
