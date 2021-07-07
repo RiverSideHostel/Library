@@ -21,14 +21,14 @@
 
 
     <!-- ログイン -->
-    <form class="form_parent" action="./users_login_act.php" method="post">
+    <form class="form_parent" action="users_login_act.php" method="post">
 
 
       <div>
         <div class="form_group">
           <p class="item_label">ニックネーム</p>
         </div>
-        <input type="text" class="login_username" name="user_name" style="background-color: transparent;">
+        <input type="text" class="login_username" name="name" style="background-color: transparent;">
       </div>
       <div>
         <div class="form_group">
