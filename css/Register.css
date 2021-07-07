@@ -131,7 +131,7 @@ button {
 }
 
 ::placeholder {
-  color:rgb(212, 212, 212);
+  color:rgba(212, 212, 212, 0.521);
 }
 
 

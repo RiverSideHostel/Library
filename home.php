@@ -65,6 +65,43 @@ if ($status2 == false) {
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-1/css/7-2-1.css">
     <link rel="stylesheet" href="./css/home.css">
+
+    
+    <!-- フォント用 -->
+    <script>
+        (function(d) {
+            var config = {
+                    kitId: 'vsf2cfy',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h = d.documentElement,
+                t = setTimeout(function() {
+                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+                }, config.scriptTimeout),
+                tk = d.createElement("script"),
+                f = false,
+                s = d.getElementsByTagName("script")[0],
+                a;
+            h.className += " wf-loading";
+            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+            tk.async = true;
+            tk.onload = tk.onreadystatechange = function() {
+                a = this.readyState;
+                if (f || a && a != "complete" && a != "loaded") return;
+                f = true;
+                clearTimeout(t);
+                try {
+                    Typekit.load(config)
+                } catch (e) {}
+            };
+            s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <!-- フォント用 -->
+
+
+
     <title>HOME</title>
 
 </head>
@@ -75,7 +112,6 @@ if ($status2 == false) {
         <div id="search-wrap">
             <form class="header" action="" method="get" crole="search">
                 <div class="bars"><img src="./image/bars-solid.svg" alt="" width="30px"></div>
-                <!-- <div class="abe"><img src="./image/202106211415554ccca1ff03bf4ebc3acb2275ba01d593.png" width="80px" alt=""></div> -->
                 <input type="text" name="search" id="search-text" value="<?php echo $search_value ?>">
                 <i class="fa fa-search"></i>
                 <input type="submit" value="" name="">
@@ -116,7 +152,9 @@ if ($status2 == false) {
         <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
         <button type="submit" class="card" style="color: white; " >
             <img src="image/${x.image}" class="card-img-top" alt="...">
-            <div class="card-body" style="max-width: 150px;">
+
+            <div class="card-body" style="max-width: 180px;">
+
             <h1 class="card-title" id="name">${x.name}</h1>
             <h2 class="card-title" id="name">${x.author}</h2>
             <h3 class="card-title" id="name">¥${x.price}</h3>
@@ -134,7 +172,9 @@ if ($status2 == false) {
         </script>
         <!-- Option 2: Separate Popper and Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script> -->
+
+
 </body>
 
 
