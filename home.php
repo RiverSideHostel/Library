@@ -125,12 +125,6 @@ if ($status2 == false) {
                 <div class="row" id="output2"></div>
             </div>
 
-            <!-- カードタイプで画像ファイルを表示させるためのコード -->
-            <div class=" container">
-                <!-- ここにカード一式が順次吐き出されてくる -->
-                <!-- <div class="row" id="output"></div> -->
-            </div>
-
             <footer>
                 <div class="footer_wrapper">
                     <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"><img src="./image/shopping_cart_black_24dp.svg" width="30px" alt=""></button>
@@ -158,7 +152,9 @@ if ($status2 == false) {
         <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
         <button type="submit" class="card" style="color: white; " >
             <img src="image/${x.image}" class="card-img-top" alt="...">
+
             <div class="card-body" style="max-width: 180px;">
+
             <h1 class="card-title" id="name">${x.name}</h1>
             <h2 class="card-title" id="name">${x.author}</h2>
             <h3 class="card-title" id="name">¥${x.price}</h3>
