@@ -4,12 +4,12 @@ use function PHPSTORM_META\exitPoint;
 
 include("functions.php");
 session_start();
+// check_session_id();
 
 $id = $_GET["id"];
 // var_dump($id);
 // exit('ok');
-// var_dump("止まれ");
-// exit();
+
 $pdo = connect_to_db();
 $sql = 'SELECT * FROM books WHERE id=:id';
 $stmt = $pdo->prepare($sql);
@@ -33,6 +33,7 @@ if ($status == false) {
         $output .= "<td>¥{$record["price"]}</td>";
         $output .= "<td><p>- 貸出可能です -</p></td>";
         $output .= "<td>{$record["description"]}</td>";
+
         // $output .= "<td>{$id}</td>";
         $output .= "</tr>";
     }

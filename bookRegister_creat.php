@@ -31,15 +31,18 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
     $uploaded_file_name = $_FILES['image']['name']; //ファイル名の取得 
     $temp_path = $_FILES['image']['tmp_name'];
     //tmpフォルダの場所 
-    $directory_path = '../image/';
-    // var_dump($uploaded_file_name);
-    // exit();
+    $directory_path = 'image/';
+    // $directory_path = '../image/'; regsiterフォルダがあったときはこの状態だった
+
 }
 
 // 拡張子の情報を取得
 $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION);
 $unique_name = date('YmdHis') . md5(session_id()) . "." . $extension;
 $filename_to_save = $directory_path . $unique_name;
+// $filename_to_saveName = '../' . $filename_to_save;
+// var_dump($filename_to_saveName);
+//         exit();
 // var_dump($filename_to_save);
 // var_dump($extension);
 // exit();
@@ -82,6 +85,6 @@ if ($status == false) {
     echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
-    header('Location:home.php/');
+    header('Location:home.php');
     exit();
 }

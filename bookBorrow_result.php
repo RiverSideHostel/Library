@@ -1,12 +1,18 @@
 <?php
 
 use function PHPSTORM_META\exitPoint;
+
 session_start();
 include("functions.php");
+// check_session_id();
+
+
 
 $id = $_GET["id"];
-var_dump($id);
-exit("ok?");
+// var_dump($id);
+// var_dump($_SESSION);
+// var_dump($_SESSION["book_id"]);
+// exit("ok?");
 
 $pdo = connect_to_db();
 $sql = "SELECT * FROM books WHERE id=:id";
@@ -24,12 +30,12 @@ if ($status == false) {
     $output = "";
     foreach ($result as $record) {
         $output .= "<tr>";
-        $output .= "<td><img src='image/{$record["image"]}'></td><br>";
+        $output .= "<td><img src='{$record["image"]}'></td><br>";
         $output .= "<td><p>- 商品概要 -</p></td><br>";
-        $output .= "<td>{$record["name"]}</td><br>";
-        $output .= "<td>{$record["author"]}</td><br>";
-        $output .= "<td>{$record["published"]}</td><br>";
-        $output .= "<td>{$record["genre"]}</td><br>";
+        $output .= "書名：<td>{$record["name"]}</td><br>";
+        $output .= "著者：<td>{$record["author"]}</td><br>";
+        $output .= "出版時期：<td>{$record["published"]}</td><br>";
+        $output .= "ジャンル：<td>{$record["genre"]}</td><br>";
         $output .= "<td><p></p></td><br>";
         $output .= "<td><p>- 取引概要 -</p></td><br>";
         $output .= "<td>１週間貸出：¥{$record["price"]}</td><br>";
@@ -40,7 +46,6 @@ if ($status == false) {
         $output .= "</tr>";
     }
 }
-
 // header('Location:/LAB5/RiverSideHostel/home.php/');
 // exit();
 ?>
@@ -56,15 +61,14 @@ if ($status == false) {
 </head>
 
 <body>
-
-
     <div class=" container">
         <tbody>
             <?= $output ?>
         </tbody>
     </div>
 
-    <button class="button" type=“button” onclick="location.href='home.php'">HOMEへ</button>
+    <button class="button" type=“button” onclick="location.href='home.php'">取引完了してHOMEへ</button>
 
 </body>
+
 </html>
