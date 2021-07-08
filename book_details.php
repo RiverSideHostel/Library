@@ -9,7 +9,6 @@ session_start();
 $id = $_GET["id"];
 // var_dump($id);
 // exit('ok');
-
 $pdo = connect_to_db();
 $sql = 'SELECT * FROM books WHERE id=:id';
 $stmt = $pdo->prepare($sql);
@@ -28,15 +27,31 @@ if ($status == false) {
         $output .= "<div class='author_area'><td>{$record["author"]}</td></div>";
         $output .= "<div class='name_area'><td>{$record["name"]}</td></div>";
         $output .= "<div class='book_img_area'><td><img class='book_img' src='{$record["image"]}'></td></div>";
+
+        $output .= "<td>{$record["published"]}</td>";
+        $output .= "<td>{$record["genre"]}</td>";
+        $output .= "<td>¥{$record["price"]}</td>";
+        //ここ書き換えてます  statusカラムが0か1かで貸出可能かどうかを表示切り替え 
+        //貸出中の時にボタンを押せないようにする実装はできてないです
+        if ($record['status'] == 0) {
+            $output .= "<td><p>- 貸出可能です -</p></td>";
+        } else {
+            $output .= "<td><p>- 貸出中です -</p></td>";
+        }
+        // $output .= "<td><p>- 貸出可能です -</p></td>";
+        $output .= "<td>{$record["description"]}</td>";
+
         $output .= "<div class='price_area'><td><p class='価格'>価格:</p>¥ {$record["price"]}";
         $output .= "<p class='rental_area'>貸出OK !</p></td></div>";
         $output .= "<div id='p1'>{$record["description"]}</div>";
         // $output .= "<td>{$record["genre"]}</td>";
         // $output .= "<td>{$record["published"]}</td>";
         // $output .= "<td>{$id}</td>";
+
         $output .= "</tr>";
     }
 }
+
 
 ?>
 
@@ -48,6 +63,7 @@ if ($status == false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/details.css">
+    <link rel="stylesheet" href="./css/details_status.css">
     <title>本の詳細画面 & 取引画面</title>
 
 
@@ -148,6 +164,22 @@ if ($status == false) {
                 </div>
             </footer>
         </div>
+
+        <form action='bookBorrow_creat.php' method="post">
+            <label for="trade">受取方法</label>
+            <select name="trade_type" id="trade">
+                <option value="郵送">郵送</option>
+                <option value="コンビニ">コンビニ</option>
+            </select>
+            <label for="date">受取日</label>
+            <input type="date" name="receipt_date" id="date">
+            <input type="hidden" name="id" value="<?= $id ?>">
+            <input type="submit" value="この本を借りる">
+        </form>
+        <button class="button" type=“button” onclick="location.href='home.php'">同じ本を貸しに出す</button>
+
+        <!--------------メインーーーーーーーーーーーーー-->
+
 
         <!-- ------------ヘッダーーーーーーーーーーーーー -->
 
