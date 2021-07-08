@@ -1,6 +1,8 @@
 <?php
 session_start();
 include("functions.php");
+// check_session_id();
+
 
 $pdo = connect_to_db();
 
@@ -149,7 +151,7 @@ if ($status2 == false) {
         <div class="col-sm-3 my-3">
         <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
         <button type="submit" class="card" style="color: white; " >
-            <img src="image/${x.image}" class="card-img-top" alt="...">
+            <img src="${x.image}" class="card-img-top" alt="...">
 
             <div class="card-body" style="max-width: 180px;">
 

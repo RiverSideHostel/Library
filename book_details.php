@@ -4,12 +4,12 @@ use function PHPSTORM_META\exitPoint;
 
 include("functions.php");
 session_start();
+// check_session_id();
 
 $id = $_GET["id"];
 // var_dump($id);
 // exit('ok');
-// var_dump("止まれ");
-// exit();
+
 $pdo = connect_to_db();
 $sql = 'SELECT * FROM books WHERE id=:id';
 $stmt = $pdo->prepare($sql);
@@ -25,7 +25,7 @@ if ($status == false) {
     $output = "";
     foreach ($result as $record) {
         $output .= "<tr>";
-        $output .= "<td><img src='image/{$record["image"]}'></td><br>";
+        $output .= "<td><img src='{$record["image"]}'></td><br>";
         $output .= "<td>{$record["name"]}</td><br>";
         $output .= "<td>{$record["author"]}</td><br>";
         $output .= "<td>{$record["published"]}</td><br>";
