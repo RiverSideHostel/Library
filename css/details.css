@@ -239,8 +239,6 @@ background-position: 0% 50%
     padding: 100px 0;
 }
 
-
-
 input{
   /* background-color: rgba(255, 255, 255, 0.1); */
     color: white;
@@ -255,19 +253,19 @@ input{
     padding: 10px;
 }
 .author_area{
-    padding: 0 100px 0 20px;
+    padding: 0 100px 0 30px;
     font-family: heisei-kaku-gothic-std,sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 14px;
 }
 .name_area{
-    padding: 0 100px 20px 20px;
+    padding: 0 100px 20px 30px;
     font-family: heisei-kaku-gothic-std,sans-serif;
     font-weight: 700;
     font-style: normal;
     line-height: 120%;
-    font-size: 18px;
+    font-size: 23px;
 }
 
 .book_img_area{
@@ -275,23 +273,95 @@ input{
     justify-content:center;
 }
 
+.price_area{
+    display: flex;
+    padding: 16px 20px 0 30px;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+
+}
+
+.価格{
+    padding: 33px 10px 0 0;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.rental_area{
+    padding: 33px 0 0 10px;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.detail_btn{
+  margin:0 0 15px 35px;
+    font-size: 13px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-radius: 7px;
+    padding-left: 14px;
+    padding-top: 2px;
+}
+
+#p1{
+    padding: 20px 50px 30px 50px;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 13px;
+}
+
+.order_form{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid rgb(255, 255, 255, 0.3);
+  padding-top: 20px;
+}
+
+.trade_area{
+  font-size: 18px;
+  color: white;
+  border: 1px solid rgb(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 7px;
+
+}
+
+.date_area{
+  margin-top:10px ;
+  font-size: 15px;
+}
+
 .book_img{
     width: 280px;
 }
 
 
-input[type="month"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
 
-button {
-    font-size: 10px;
+.button {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 90px;
+    font-size: 15px;
     color: white;
-    width: 70px;
-    height: 70px;
+    width: 300px;
+    height: 50px;
     border: 1px solid rgb(255, 255, 255, 0.3);
-    border-radius: 50%;
+    border-radius: 10px;
 }
 
 

@@ -27,6 +27,7 @@ if ($status == false) {
         $output .= "<div class='author_area'><td>{$record["author"]}</td></div>";
         $output .= "<div class='name_area'><td>{$record["name"]}</td></div>";
         $output .= "<div class='book_img_area'><td><img class='book_img' src='{$record["image"]}'></td></div>";
+
         $output .= "<td>{$record["published"]}</td>";
         $output .= "<td>{$record["genre"]}</td>";
         $output .= "<td>¥{$record["price"]}</td>";
@@ -39,6 +40,14 @@ if ($status == false) {
         }
         // $output .= "<td><p>- 貸出可能です -</p></td>";
         $output .= "<td>{$record["description"]}</td>";
+
+        $output .= "<div class='price_area'><td><p class='価格'>価格:</p>¥ {$record["price"]}";
+        $output .= "<p class='rental_area'>貸出OK !</p></td></div>";
+        $output .= "<div id='p1'>{$record["description"]}</div>";
+        // $output .= "<td>{$record["genre"]}</td>";
+        // $output .= "<td>{$record["published"]}</td>";
+        // $output .= "<td>{$id}</td>";
+
         $output .= "</tr>";
     }
 }
@@ -121,7 +130,41 @@ if ($status == false) {
             <tbody>
                 <?= $output ?>
             </tbody>
+
+            <div class="detail_btn" type="button" onclick="clickBtn1()">
+                <p>詳細を表示</p>
+            </div>
+
+            <div class="order_form">
+                <form action='bookBorrow_creat.php' method="post">
+                    <label for="trade">受取方法を選んで下さい</label>
+                    <select class="trade_area" name="trade_type" id="trade">
+                        <option value="郵送">郵送</option>
+                        <option value="コンビニ">コンビニ</option>
+                    </select>
+
+                    <div class="date_area">
+                        <p>受取れる日はいつですか？</p>
+                        <input type="date" name="receipt_date" id="date">
+                    </div>
+                    <input type="hidden" name="id" value="<?= $id ?>">
+                    <input class="button" type="submit" value="この本を借りる">
+                </form>
+            </div>
+
+            <!--------------メインーーーーーーーーーーーーー-->
+
+            <!-- ------------ヘッダーーーーーーーーーーーーー -->
+
+            <footer>
+                <div class="footer_wrapper">
+                    <div class="footer_btn_left" onclick="location.href='post_read.php'"><img src="./image/shopping_cart_black_24dp.svg" width="30px" alt=""></div>
+                    <div class="footer_btn_center" onclick="location.href='bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></div>
+                    <div class="footer_btn_right"><img src="./image/user-circle-solid.svg" width="30px" alt=""></div>
+                </div>
+            </footer>
         </div>
+
         <form action='bookBorrow_creat.php' method="post">
             <label for="trade">受取方法</label>
             <select name="trade_type" id="trade">
@@ -137,18 +180,11 @@ if ($status == false) {
 
         <!--------------メインーーーーーーーーーーーーー-->
 
+
         <!-- ------------ヘッダーーーーーーーーーーーーー -->
 
-        <footer>
-            <div class="footer_wrapper">
-                <div class="footer_btn_left" onclick="location.href='post_read.php'"><img src="./image/shopping_cart_black_24dp.svg" width="30px" alt=""></div>
-                <div class="footer_btn_center" onclick="location.href='bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></div>
-                <div class="footer_btn_right"><img src="./image/user-circle-solid.svg" width="30px" alt=""></div>
-            </div>
-        </footer>
-    </div>
+        <script src="main.js"></script>
 
-    <!-- ------------ヘッダーーーーーーーーーーーーー -->
 </body>
 
 

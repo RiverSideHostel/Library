@@ -133,11 +133,6 @@ if ($status2 == false) {
                 </div>
             </footer>
 
-            <!-- <div class="users"><img class="icon" src="<?= $_SESSION["usericon"] ?>"><?= $_SESSION["username"] ?></div>
-            <button class="button" type=“button” onclick="location.href='genre.php?id= <?= $_SESSION['id'] ?>'">ジャンルで検索</button>
-            <button class="button" type=“button” onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'">本を登録</button>
-            <button class="button" type=“button” onclick="location.href='users_edit.php?id= <?= $_SESSION['id'] ?>'">プロフィール</button>
-            <button class="button" type=“button” onclick="location.href='users_logout.php'">ログアウト</button> -->
 
         </div>
 
@@ -149,7 +144,7 @@ if ($status2 == false) {
             data2.forEach(function(x) {
                 output_data2.push(`
         <div class="col-sm-3 my-3">
-        <form action="/LAB5/RiverSideHostel/book_details.php" method="get">
+        <form action="book_details.php" method="get">
         <button type="submit" class="card" style="color: white; " >
             <img src="${x.image}" class="card-img-top" alt="...">
 
