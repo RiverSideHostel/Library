@@ -47,7 +47,7 @@
 
     <div class="person_box">
       <p class="person_text">アカウントをお持ちでない方</p>
-      <button class="new_btn" style="background-color: transparent;" onclick="location.href='./users/users_input.php'">新規会員登録</a>
+      <button class="new_btn" style="background-color: transparent;" onclick="location.href='index.html'">新規会員登録</a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../functions.php");
+include("functions.php");
 // var_dump($_POST);
 // exit();
 
@@ -82,6 +82,6 @@ if ($status == false) {
     echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
-    header('Location:../home.php/');
+    header('Location:home.php/');
     exit();
 }
