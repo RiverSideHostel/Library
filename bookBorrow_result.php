@@ -15,7 +15,8 @@ $id = $_GET["id"];
 // exit("ok?");
 
 $pdo = connect_to_db();
-$sql = "SELECT * FROM books WHERE id=:id";
+// $sql = "SELECT * FROM books WHERE id=:id";
+$sql = "SELECT * FROM books LEFT OUTER JOIN users_table ON books.user_id = users_table.id ";
 // $sql = "UPDATE books SET borrow_user_id=:borrow_user_id, trade_type=:trade_type, receipt_date=:receipt_date, return_date=:return_date, updated_at = sysdate() WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -42,7 +43,7 @@ if ($status == false) {
         $output .= "<td>引渡方法：{$record["trade_type"]}</td><br>";
         $output .= "<td>受取予定日：{$record["receipt_date"]}</td><br>";
         $output .= "<td>返却予定日：{$record["return_date"]}</td><br>";
-        $output .= "<td>貸出人：{$_SESSION['NAME']}</td><br>";
+        $output .= "<td>借主：{$_SESSION['NAME']}</td><br>";
         $output .= "</tr>";
     }
 }

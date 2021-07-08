@@ -7,7 +7,7 @@
   <!-- <link rel="stylesheet" href="css/kasho.css"> -->
   <link rel="stylesheet" href="./css/login.css">
 
-  <title>ログイン画面</title>
+  <title>ii tanaログイン画面</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
   <section class="form_parent">
 
 
-    <h1>Libraryにログイン</h1>
+    <h1>ii tanaにログイン</h1>
 
 
     <!-- ログイン -->
@@ -51,7 +51,6 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="kasho.js"></script>
 </body>
 
 </html>
