@@ -1,5 +1,5 @@
 <?php
-include("../functions.php");
+include("functions.php");
 session_start();
 $pdo = connect_to_db();
 ?>
@@ -10,7 +10,7 @@ $pdo = connect_to_db();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/Register.css">
+  <link rel="stylesheet" href="css/Register.css">
   <!-- マテリアルアイコン -->
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
@@ -30,8 +30,6 @@ $pdo = connect_to_db();
     <div class="header_right"></div>
 
   </div>
-
-
 
   <form action="bookRegister_creat.php" method="post" enctype="multipart/form-data">
     <fieldset>
@@ -59,6 +57,13 @@ $pdo = connect_to_db();
                 <option value="映画">映画</option>
                 <option value="ビジネス">ビジネス</option>
                 <option value="IT・コンピュータ">IT・コンピュータ</option>
+                <option value="絵本">絵本</option>
+                <option value="アニメ">アニメ</option>
+                <option value="音楽">音楽</option>
+                <option value="建築">建築</option>
+                <option value="機械・電子">機械・電子</option>
+                <option value="理学">理学</option>
+                <option value="文学">文学</option>
               </select>
               <div class="select_btn">
                 <img src="../image/chevron-down-solid.svg" width="10px" alt="">

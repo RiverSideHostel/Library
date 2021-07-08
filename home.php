@@ -64,7 +64,7 @@ if ($status2 == false) {
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-1/css/7-2-1.css">
     <link rel="stylesheet" href="./css/home.css">
 
-    
+
     <!-- フォント用 -->
     <script>
         (function(d) {
@@ -126,7 +126,7 @@ if ($status2 == false) {
             <footer>
                 <div class="footer_wrapper">
                     <button id="page_top" class="footer_btn_left" onclick="location.href='post_read.php'"><img src="./image/shopping_cart_black_24dp.svg" width="30px" alt=""></button>
-                    <button class="button" type=“button” class="footer_btn_center" onclick="location.href='register/bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></button>
+                    <button class="button" type=“button” class="footer_btn_center" onclick="location.href='bookRegister_read.php?id= <?= $_SESSION['id'] ?>'"><img src="./image/plus-solid.svg" width="30px" alt=""></button>
                     <button id="reload" class="footer_btn_right"><img src="./image/user-circle-solid.svg" width="30px" alt=""></button>
                 </div>
             </footer>
