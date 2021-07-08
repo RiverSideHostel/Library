@@ -27,23 +27,20 @@ if ($status == false) {
         $output .= "<div class='author_area'><td>{$record["author"]}</td></div>";
         $output .= "<div class='name_area'><td>{$record["name"]}</td></div>";
         $output .= "<div class='book_img_area'><td><img class='book_img' src='{$record["image"]}'></td></div>";
-
-        $output .= "<td>{$record["published"]}</td>";
-        $output .= "<td>{$record["genre"]}</td>";
-        $output .= "<td>¥{$record["price"]}</td>";
+        $output .= "<div class='price_area'><td><p class='価格'>価格:</p>¥ {$record["price"]}";
         //ここ書き換えてます  statusカラムが0か1かで貸出可能かどうかを表示切り替え 
         //貸出中の時にボタンを押せないようにする実装はできてないです
         if ($record['status'] == 0) {
-            $output .= "<td><p>- 貸出可能です -</p></td>";
+            $output .= "<td><p class='rental_area'>- 貸出可能です -</p></td></div>";
         } else {
-            $output .= "<td><p>- 貸出中です -</p></td>";
+            $output .= "<td><p class='rental_area'>- 貸出中です -</p></td></div>";
         }
         // $output .= "<td><p>- 貸出可能です -</p></td>";
-        $output .= "<td>{$record["description"]}</td>";
-
-        $output .= "<div class='price_area'><td><p class='価格'>価格:</p>¥ {$record["price"]}";
-        $output .= "<p class='rental_area'>貸出OK !</p></td></div>";
         $output .= "<div id='p1'>{$record["description"]}</div>";
+
+        // $output .= "<div class='price_area'><td><p class='価格'>価格:</p>¥ {$record["price"]}";
+        // $output .= "<p class='rental_area'>貸出OK !</p></td></div>";
+        // $output .= "<div id='p1'>{$record["description"]}</div>";
         // $output .= "<td>{$record["genre"]}</td>";
         // $output .= "<td>{$record["published"]}</td>";
         // $output .= "<td>{$id}</td>";
@@ -154,7 +151,7 @@ if ($status == false) {
 
             <!--------------メインーーーーーーーーーーーーー-->
 
-            <!-- ------------ヘッダーーーーーーーーーーーーー -->
+            <!-- ------------フッターーーーーーーーーーーー -->
 
             <footer>
                 <div class="footer_wrapper">
@@ -165,20 +162,8 @@ if ($status == false) {
             </footer>
         </div>
 
-        <form action='bookBorrow_creat.php' method="post">
-            <label for="trade">受取方法</label>
-            <select name="trade_type" id="trade">
-                <option value="郵送">郵送</option>
-                <option value="コンビニ">コンビニ</option>
-            </select>
-            <label for="date">受取日</label>
-            <input type="date" name="receipt_date" id="date">
-            <input type="hidden" name="id" value="<?= $id ?>">
-            <input type="submit" value="この本を借りる">
-        </form>
-        <button class="button" type=“button” onclick="location.href='home.php'">同じ本を貸しに出す</button>
 
-        <!--------------メインーーーーーーーーーーーーー-->
+        <!--------------フッターーーーーーーーーーーーー-->
 
 
         <!-- ------------ヘッダーーーーーーーーーーーーー -->
