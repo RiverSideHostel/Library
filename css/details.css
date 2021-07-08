@@ -1,0 +1,340 @@
+/* 
+font-family: heisei-kaku-gothic-std,sans-serif;
+font-weight: 300;
+font-style: normal;
+
+font-family: heisei-kaku-gothic-std,sans-serif;
+font-weight: 500;
+font-style: normal;
+
+font-family: heisei-kaku-gothic-std,sans-serif;
+font-weight: 700;
+font-style: normal;
+ */
+
+
+
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'M PLUS Rounded 1c',
+    sans-serif;
+}
+
+body {
+  line-height: 1.8;
+  line-height: 2;
+  font-size: 18px;
+  color: var(--color_black);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+/* フォーム */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+}
+
+::placeholder {
+  color:rgba(212, 212, 212, 0.521);
+}
+
+
+/* リセット */
+/* リセット */
+/* リセット */
+/* リセット */
+/* リセット */
+
+
+/* fallback */
+
+
+
+/* マテリアルアイコン */
+/* マテリアルアイコン */
+/* マテリアルアイコン */
+/* マテリアルアイコン */
+/* マテリアルアイコン */
+/* マテリアルアイコン */
+
+
+
+
+html{
+    width: 414px;
+    height: 896px;
+}
+
+
+body{
+    color: white;
+    width: 414px;
+    height: 896px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+}
+
+
+@keyframes gradient {
+0% {
+background-position: 0% 50%
+}
+50% {
+background-position: 100% 50%
+}
+100% {
+background-position: 0% 50%
+}
+}
+
+.header{
+    margin-top: 8px;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.header_left{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.header_btn_left{
+    margin-left: 20px;
+}
+
+.header_center{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_right{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+
+
+.warapper{
+    margin: auto;
+    padding: 100px 0;
+}
+
+
+
+input{
+  /* background-color: rgba(255, 255, 255, 0.1); */
+    color: white;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    padding: 10px;
+}
+.author_area{
+    padding: 0 100px 0 20px;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+}
+.name_area{
+    padding: 0 100px 20px 20px;
+    font-family: heisei-kaku-gothic-std,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
+    font-size: 18px;
+}
+
+.book_img_area{
+    display: flex;
+    justify-content:center;
+}
+
+.book_img{
+    width: 280px;
+}
+
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+button {
+    font-size: 10px;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+
+
+/* フッター */
+
+footer {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer_wrapper {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+.footer_btn_left{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_btn_center{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footer_btn_right{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
