@@ -22,7 +22,7 @@ $pdo = connect_to_db();
   <div class="header">
 
     <div class="header_left">
-      <img class="header_btn" src="../image/close_white_18dp.svg" alt="" onclick="location.href='../users_logout.php'">
+      <img class="header_btn" src="image/close_white_18dp.svg" alt="" onclick="location.href='users_logout.php'">
     </div>
     <div class="header_center">
       <p class="header_text">本の詳細情報</p>
@@ -39,7 +39,7 @@ $pdo = connect_to_db();
           <div class="img">
             <p class="category">本の画像</p>
             <label for="file" class="file_area">
-              <img class="file_btn" src="../image/images-regular.svg" alt="">
+              <img class="file_btn" src="image/images-regular.svg" alt="">
             </label>
             <input type="file" id="file" class="fileinput" name="image" accept="image/*" capture="camera">
             <div id="preview"></div>
@@ -89,7 +89,7 @@ $pdo = connect_to_db();
 
 
 
-  <script src="../Register.js"></script>
+  <script src="Register.js"></script>
 
   <!-- これより下は元のデータのままです -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
